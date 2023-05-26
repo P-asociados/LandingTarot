@@ -8,20 +8,32 @@
         cursor: pointer;
     }
 
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: var(--vh);
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+    }
+
     .navbar-responsive {
         display: flex;
         flex-direction: column;
         gap: 20px;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-end;
         text-align: end;
         position: fixed;
         top: 0;
         right: 0;
         background-color: var(--violet);
-        height: 100vh;
-        z-index: 99;
+        height: var(--vh);
+        z-index: 100;
         padding: 30px;
+        width: 30%;
     }
 
     .navbar-responsive .top {
@@ -51,15 +63,6 @@
         display: none;
     }
 
-    .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
 
     #contact-me {
         justify-content: center;
@@ -88,8 +91,16 @@
 
 
 @media (max-width: 600px) {
+    
+    #header-top{
+        padding: 0 20px;
+    }
 
     /* Navbar */
+
+    .navbar {
+        padding: 0 30px;
+    }
     
     .navbar-responsive {
         width: 50%;
@@ -99,6 +110,12 @@
         width: 100%;
     }
 
+    /* Hero */
+
+    .hero-title {
+        font-size: 50px;
+    }
+    
     .title-section {
         gap: 10px;
     }
@@ -106,6 +123,12 @@
         font-size: 50px;
         line-height: 50px;
     }
+    
+    .divisor-text {
+        font-size: 12px;
+    }
+
+    /* TESTIMONIOS */
 
     .chats {
         flex-direction: column;

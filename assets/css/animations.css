@@ -1,0 +1,32 @@
+  
+  /* Animacion slide derecha */
+  /*Funcionamiento: Hacemos llegar al elemento animado desde la derecha*/
+  
+  @keyframes slide-right {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-left {
+    from {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+.navbar-responsive {
+  animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+  animation-name: slide-right;
+}
+
