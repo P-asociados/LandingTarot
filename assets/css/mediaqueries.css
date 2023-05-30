@@ -9,8 +9,8 @@
     .menu-responsive {
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        justify-content: space-between;
+        gap: 120px;
+        justify-content: start;
         text-align: end;
         position: fixed;
         top: 0;
@@ -42,7 +42,8 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-        text-align: center;
+        text-align: end;
+        font-size: 18px;
     }
 
     .btn-navbar-list-r {
@@ -83,8 +84,8 @@
 
 @media (max-width: 600px) {
     
-    #header-top{
-        padding: 0 20px;
+    .header-top {
+        padding: 0 30px;
     }
 
     /* Navbar */

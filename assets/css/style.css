@@ -91,7 +91,8 @@ h2 {
 
 /* OCULTAR EN DESKTOP */
 i.icon-menu,
-.menu-responsive {
+.menu-responsive,
+.overlay {
     display: none;
 }
 

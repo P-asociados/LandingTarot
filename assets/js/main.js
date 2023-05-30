@@ -7,16 +7,16 @@ const navbar = document.querySelector(".navbar")
 const btnNavbar = document.querySelector(".btn-navbar-list")
 const aboutMeText = document.querySelector('.about-me-info')
 
-const animationObj2 = () => {
-    let chat1 = document.querySelector('.chat-1')
-    let chat2 = document.querySelector('.chat-2')
-    let chat3 = document.querySelector('.chat-3')
-    let positionChat = chat1.getBoundingClientRect().top;
-    let sizeScreenChat = window.innerHeight/3;
-    if (chat1 < sizeScreenChat) {
-        chat1.style.animation = 'fade 1,5s ease out forwards'
-    }
-}
+// const animationObj2 = () => {
+//     let chat1 = document.querySelector('.chat-1')
+//     let chat2 = document.querySelector('.chat-2')
+//     let chat3 = document.querySelector('.chat-3')
+//     let positionChat = chat1.getBoundingClientRect().top;
+//     let sizeScreenChat = window.innerHeight/3;
+//     if (chat1 < sizeScreenChat) {
+//         chat1.style.animation = 'fade 1,5s ease out forwards'
+//     }
+// }
 
 const animationObj = () => {
     let positionObj = aboutMeText.getBoundingClientRect().top;
@@ -48,14 +48,11 @@ const verificarTamañoPantalla = () => {
 
     if (anchoPantalla < 1024) {
         // Acciones para dispositivos móviles
-        navbar.style.display = "none"
         overlay.style.display = "none"
-        navbarR.style.display = "none"
     } else {
       // Acciones para escritorio
       // ...
-        navbar.style.display = "flex"
-        navbarR.style.display = "none"
+        overlay.style.display = "none"
     }
 }
 
@@ -84,6 +81,10 @@ const init = () => {
     window.addEventListener("scroll", scroll)
     window.addEventListener('scroll', animationObj)
     window.addEventListener('scroll', animationObj2)
+    /// Load
+    window.addEventListener('load', verificarTamañoPantalla);
+    // Resize
+    window.addEventListener('resize', verificarTamañoPantalla);
 }
 
 init()
