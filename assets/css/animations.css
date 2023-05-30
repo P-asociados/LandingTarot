@@ -9,6 +9,25 @@
   --text-shadow: 5px 3px 6px rgba(0,0,0,.5); 
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 99; /*Para que quede por encima del resto de las cosas*/
+  /*Efecto de Glassmorphismo*/
+  background: #000;
+  opacity: .5;
+  display: none;
+}
+
+/* SOY RODRI DEL PASADO MARCANDO EL OPEN-MENU */
+
+.show-overlay {
+  display: block;
+}
+
   @keyframes slide-down {
     from {
       transform: translateY(-100px);
@@ -59,14 +78,9 @@
     }
   }
 
-/* Navbar */
-.navbar-responsive {
-  animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-  animation-name: slide-right;
-}
 
-.item:hover {
+
+.navbar-list .link:hover {
   color: var(--violet);
   transition: all 0.2s ease-in;
   -webkit-transition: all 0.2s ease-in;
@@ -75,15 +89,25 @@
   -o-transition: all 0.2s ease-in;
 }
 
-.logo {
+.bg-violet .link:hover {
+  color: var(--blue);
+  transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+}
+
+.navbar {
   opacity: 0;
   animation: fade 1s ease-in forwards, slide-down 0.9s ease-in-out;
-  animation-delay: 0.3s;
+  animation-delay: 0.5s;
   -webkit-animation: fade 1s ease-in forwards, slide-down 0.9s ease-in-out;
 }
 
 .hero-info {
   opacity: 0;
+  animation-delay: 0.5s;
   animation: fade 1.5s ease-in forwards;
   -webkit-animation: fade 1.5s ease-in forwards;
 }
@@ -116,11 +140,10 @@
 
 /* BOTONES */
 
-.btn-navbar-list:hover {
-  background: transparent;
-  border: 1.5px solid var(--violet-creme);
-  color: var(--violet-creme);
-  font-weight: 600;
+.button-violet:hover {
+  background: var(--violet-creme);
+  color: var(--violet);
+  border: 1px solid var(--violet-creme);
   transition: all 0.3s ease-in;
   -webkit-transition: all 0.3s ease-in;
   -moz-transition: all 0.3s ease-in;
@@ -128,12 +151,11 @@
   -o-transition: all 0.3s ease-in;
 }
 
-.btn-hero:hover {
-  background: transparent;
-  border: 1px solid var(--violet-creme);
+.button-white:hover {
+  background: var(--violet);
   color: var(--violet-creme);
-  font-weight: 600;
-  transition: all 0.3s ease-in;
+  border: 1px solid var(--violet-creme);
+  transition: all 0.5s ease-in;
   -webkit-transition: all 0.3s ease-in;
   -moz-transition: all 0.3s ease-in;
   -ms-transition: all 0.3s ease-in;

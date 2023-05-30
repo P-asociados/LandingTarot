@@ -22,7 +22,6 @@
 
 body {
     background-color: var(--violet-creme);
-    position: relative;
 }
 
 p {
@@ -49,12 +48,6 @@ h2 {
     align-items: center;
 }
 
-.title-section h2 {
-    font-family: Norican;
-    font-weight: 400;
-
-}
-
 .title-underline {
     background-color: var(--yellow);
     height: 2px;
@@ -73,85 +66,93 @@ h2 {
     background-color: var(--violet);
     color: var(--violet-creme);
     border-radius: 30px;
+    border: 1px solid var(--violet);
     padding: 10px 20px;
     text-transform: capitalize;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
 }
 
 .button-white {
     color: var(--violet);
     background-color: var(--violet-creme);
+    border: 1px solid var(--violet-creme);
     border-radius: 30px;
     padding: 10px 20px;
     text-transform: capitalize;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.bg-violet {
+    background-color: var(--violet);
+    transition: all 0.3s ease-in-out; 
+}
+
+/* OCULTAR EN DESKTOP */
+i.icon-menu,
+.menu-responsive {
+    display: none;
 }
 
 /* HEADER */
-#header-top,
-#header,
+.header-top,
+header,
 .navbar,
-.navbar-list {
+.navbar-list
+{
     display: flex;
 }
 
-#header {
+.header-top {
+    height: 40px;
+    background-color: var(--blue);
+    color: var(--violet-creme);
+    align-items: center;
+    padding: 0 50px;
+    gap: 20px;
+    justify-content: start;
+}
+
+.header-top .icons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--white);
+}
+
+.header-top .icons .icon {
+    color: var(--violet);
+}
+
+header {
     position: sticky;
     top: 0;
     z-index: 5;
 }
 
-#header-top {
-    background-color: var(--blue);
-    height: 40px;
-    align-items: center;
-    color:var(--violet-creme);
-    padding: 0 50px;
-    gap: 20px;
-}
-
-.header-top-text {
-    display: flex;
-    gap: 7px;
-    font-size: 14px;
-}
-
-.header-icon {
-    color: var(--violet);
-    font-size: 16px;
-}
-
-/* NAVBAR */
 .navbar {
-    background-color: transparent;
-    justify-content: space-between;
-    align-items: center;
+    color: var(--violet-creme);
+    height: 80px;
     width: 100%;
     padding: 0 50px;
-    height: 80px;
-    color: var(--violet-creme);
-}
-
-.navbar-list .icon-close {
-    display: none;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .3s ease-in-out;
 }
 
 .navbar-list {
-    gap: 40px;
-    align-items: center;
-    cursor: pointer;
+    gap: 20px;
 }
 
-.navbar-toggle {
-    display: none;
+.link {
+    color: var(--violet-creme);
 }
 
-.navbar-responsive {
-    display: none;
-}
 
 /* HERO */
-
 main {
     position: relative;
     top: -80px;
@@ -780,6 +781,9 @@ a.close-chat {
     }
 }
 
+.navbar-responsive.hidden {
+    display: none;
+}
 
 
 .hidden {

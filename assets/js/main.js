@@ -1,13 +1,10 @@
 // Elementos del DOM
-const openBtn = document.querySelector('.blantershow-chat');
-const closeBtn = document.querySelector('.close-chat');
-const popup = document.getElementById('whatsapp-chat');
-const navbarToggle = document.querySelector('.navbar-toggle');
-const navbar = document.querySelector('.navbar-list');
-const navbarR = document.querySelector('.navbar-responsive');
-const overlay = document.querySelector('.overlay');
-const iconClose = document.querySelector('.icon-close');
-const menuToggle = document.querySelector('#menu-toggle');
+const iconMenu = document.querySelector(".icon-menu")
+const iconCloseMenu = document.querySelector(".icon-close")
+const menu = document.querySelector('.menu-responsive');
+const overlay = document.querySelector(".overlay")
+const navbar = document.querySelector(".navbar")
+const btnNavbar = document.querySelector(".btn-navbar-list")
 const aboutMeText = document.querySelector('.about-me-info')
 
 const animationObj2 = () => {
@@ -30,46 +27,20 @@ const animationObj = () => {
     }
 }
 
-// Enviar mensaje por WhataApp
-const sendMensaje = () => {
-	var a = document.getElementById("chat-input")
-    if ("" != a.value) {
-        var b = document.getElementById("get-number").innerHTML,
-        c = document.getElementById("chat-input").value, 
-        d = "https://web.whatsapp.com/send", 
-        e = b,  
-        f = "&text=" + c
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) 
-        var d = "whatsapp://send";  
-        var g = d + "?phone=" + e + f;  
-        window.open(g, "_blank");
-    }
-}
+const toggleMenu = () => {
+	menu.classList.toggle("open-menu");
+    overlay.classList.toggle("show-overlay");
+};
 
-// Abrir chat
-const showChat = () => {
-    popup.classList.remove('hidden');
-    popup.style.animationName = 'showPopup';
-}
+const closeOnScroll = () => {
+    menu.classList.remove("open-menu");
+	overlay.classList.remove("show-overlay");
+};
 
-// Cerrar chat
-const hideChat = () => {
-    popup.style.animationName = 'hidePopup';
-    popup.addEventListener('animationend', function() {
-        popup.classList.add('hidden');
-        popup.style.animationName = '';
-    }, { once: true });
-}
-
-const showMenu = () => {
-    navbarR.style.display = "flex"
-    overlay.style.display = 'block';
-}
-
-const hiddenMenu = () =>  {
-    navbarR.style.display = "none"
-    overlay.style.display = 'none';
-}
+const closeOnOverlayClick = () => {
+    menu.classList.remove("open-menu");
+	overlay.classList.remove("show-overlay");
+};
 
 // Función para verificar el tamaño de la pantalla y realizar acciones correspondientes
 const verificarTamañoPantalla = () => {
@@ -89,38 +60,28 @@ const verificarTamañoPantalla = () => {
 }
 
 // Scroll
-window.addEventListener("scroll", function() {
-    let navbar = document.querySelector(".navbar")
-    let btnNavbar = document.querySelector(".btn-navbar-list")
+const scroll = () => {
     let scrollPos = window.scrollY
-
     if (scrollPos > 39) {
-        navbar.style.backgroundColor = "var(--violet)"
-        navbar.style.transition = "background-color 0.3s ease-in-out"
+        navbar.classList.add("bg-violet")
         btnNavbar.classList.remove("button-violet")
         btnNavbar.classList.add("button-white")
-        btnNavbar.style.transition = "all 0.3s ease-in-out"
     }
     else {
-        navbar.style.backgroundColor = "transparent"
-        navbar.style.transition = "background-color 0.3s ease-in-out"
+        navbar.classList.remove("bg-violet")
         btnNavbar.classList.remove("button-white")
         btnNavbar.classList.add("button-violet")
-        btnNavbar.style.transition = "all 0.3s ease-in-out"
     }
-});  
-
+}
 
 const init = () => {
-    window.addEventListener('resize', adjustViewportHeight)
-    window.addEventListener('scroll', adjustViewportHeight);
-    window.addEventListener('load', verificarTamañoPantalla);
-    window.addEventListener('resize', verificarTamañoPantalla);
-    menuToggle.addEventListener('click', showMenu);
-    overlay.addEventListener('click', hiddenMenu);
-    iconClose.addEventListener('click', hiddenMenu);
-    // openBtn.addEventListener('click', showChat);
-    // closeBtn.addEventListener('click', hideChat);
+    // Clicks
+    iconMenu.addEventListener('click', toggleMenu);
+    iconCloseMenu.addEventListener("click", closeOnOverlayClick)
+    overlay.addEventListener('click', closeOnOverlayClick)
+    // Scrolls
+    window.addEventListener("scroll", closeOnScroll);
+    window.addEventListener("scroll", scroll)
     window.addEventListener('scroll', animationObj)
     window.addEventListener('scroll', animationObj2)
 }
