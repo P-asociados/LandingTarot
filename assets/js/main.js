@@ -110,22 +110,6 @@ window.addEventListener("scroll", function() {
     }
 });  
 
-// Detectar si es un dispositivo móvil y el sistema operativo
-var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-
-// Ajustar el tamaño del viewport
-function adjustViewportHeight() {
-    var vh = window.innerHeight;
-
-    // Si es un dispositivo móvil y es iOS, restar la altura de la barra de navegación
-    if (isMobile && isIOS) {
-        vh -= (window.outerHeight - window.innerHeight);
-    }
-
-    // Establecer la altura en CSS personalizado
-    document.documentElement.style.setProperty('--vh', vh + 'px');
-}
 
 const init = () => {
     window.addEventListener('resize', adjustViewportHeight)
