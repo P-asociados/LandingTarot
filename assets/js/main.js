@@ -1,10 +1,65 @@
+// Elementos del DOM
+const openBtn = document.querySelector('.blantershow-chat');
+const closeBtn = document.querySelector('.close-chat');
+const popup = document.getElementById('whatsapp-chat');
 const navbarToggle = document.querySelector('.navbar-toggle');
 const navbar = document.querySelector('.navbar-list');
 const navbarR = document.querySelector('.navbar-responsive');
 const overlay = document.querySelector('.overlay');
 const iconClose = document.querySelector('.icon-close');
 const menuToggle = document.querySelector('#menu-toggle');
+const aboutMeText = document.querySelector('.about-me-info')
 
+const animationObj2 = () => {
+    let chat1 = document.querySelector('.chat-1')
+    let chat2 = document.querySelector('.chat-2')
+    let chat3 = document.querySelector('.chat-3')
+    let positionChat = chat1.getBoundingClientRect().top;
+    let sizeScreenChat = window.innerHeight/3;
+    if (chat1 < sizeScreenChat) {
+        chat1.style.animation = 'fade 1,5s ease out forwards'
+    }
+}
+
+const animationObj = () => {
+    let positionObj = aboutMeText.getBoundingClientRect().top;
+    let sizeScreen = window.innerHeight/1.5;
+    console.log(sizeScreen);
+    if (positionObj < sizeScreen) {
+        aboutMeText.style.animation = 'fade 1.5s ease-out forwards'
+    }
+}
+
+// Enviar mensaje por WhataApp
+const sendMensaje = () => {
+	var a = document.getElementById("chat-input")
+    if ("" != a.value) {
+        var b = document.getElementById("get-number").innerHTML,
+        c = document.getElementById("chat-input").value, 
+        d = "https://web.whatsapp.com/send", 
+        e = b,  
+        f = "&text=" + c
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) 
+        var d = "whatsapp://send";  
+        var g = d + "?phone=" + e + f;  
+        window.open(g, "_blank");
+    }
+}
+
+// Abrir chat
+const showChat = () => {
+    popup.classList.remove('hidden');
+    popup.style.animationName = 'showPopup';
+}
+
+// Cerrar chat
+const hideChat = () => {
+    popup.style.animationName = 'hidePopup';
+    popup.addEventListener('animationend', function() {
+        popup.classList.add('hidden');
+        popup.style.animationName = '';
+    }, { once: true });
+}
 
 const showMenu = () => {
     navbarR.style.display = "flex"
@@ -32,13 +87,6 @@ const verificarTamañoPantalla = () => {
         navbarR.style.display = "none"
     }
 }
-
-// Ejecutar la función cuando se carga la página y cuando se redimensiona la ventana
-window.addEventListener('load', verificarTamañoPantalla);
-window.addEventListener('resize', verificarTamañoPantalla);
-menuToggle.addEventListener('click', showMenu);
-overlay.addEventListener('click', hiddenMenu);
-iconClose.addEventListener('click', hiddenMenu);
 
 // Scroll
 window.addEventListener("scroll", function() {
@@ -68,21 +116,29 @@ var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
 // Ajustar el tamaño del viewport
 function adjustViewportHeight() {
-  var vh = window.innerHeight;
+    var vh = window.innerHeight;
 
-  // Si es un dispositivo móvil y es iOS, restar la altura de la barra de navegación
-  if (isMobile && isIOS) {
-    vh -= (window.outerHeight - window.innerHeight);
-  }
+    // Si es un dispositivo móvil y es iOS, restar la altura de la barra de navegación
+    if (isMobile && isIOS) {
+        vh -= (window.outerHeight - window.innerHeight);
+    }
 
-  // Establecer la altura en CSS personalizado
-  document.documentElement.style.setProperty('--vh', vh + 'px');
+    // Establecer la altura en CSS personalizado
+    document.documentElement.style.setProperty('--vh', vh + 'px');
 }
 
-// Ejecutar la función de ajuste inicialmente y en caso de cambio de tamaño de ventana
-adjustViewportHeight();
-window.addEventListener('resize', adjustViewportHeight)
-window.addEventListener('scroll', adjustViewportHeight);
+const init = () => {
+    window.addEventListener('resize', adjustViewportHeight)
+    window.addEventListener('scroll', adjustViewportHeight);
+    window.addEventListener('load', verificarTamañoPantalla);
+    window.addEventListener('resize', verificarTamañoPantalla);
+    menuToggle.addEventListener('click', showMenu);
+    overlay.addEventListener('click', hiddenMenu);
+    iconClose.addEventListener('click', hiddenMenu);
+    // openBtn.addEventListener('click', showChat);
+    // closeBtn.addEventListener('click', hideChat);
+    window.addEventListener('scroll', animationObj)
+    window.addEventListener('scroll', animationObj2)
+}
 
-
-
+init()

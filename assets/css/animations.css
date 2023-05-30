@@ -1,7 +1,32 @@
-  
-  /* Animacion slide derecha */
-  /*Funcionamiento: Hacemos llegar al elemento animado desde la derecha*/
-  
+:root {
+  --violet-creme: #fff2fc;
+  --blue: #212633;
+  --black: #121212;
+  --yellow: #d6ba6f;
+  --violet: #9a37e8;
+  --poppins: 'Poppins', sans-serif;
+  --norican: 'Norican', sans-serif;
+  --text-shadow: 5px 3px 6px rgba(0,0,0,.5); 
+}
+
+  @keyframes slide-down {
+    from {
+      transform: translateY(-100px);
+      -webkit-transform: translateY(-100px);
+      -moz-transform: translateY(-100px);
+      -ms-transform: translateY(-100px);
+      -o-transform: translateY(-100px);
+}
+    to {
+      transform: translateY(0);
+      -webkit-transform: translateY(0);
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -o-transform: translateY(0);
+}
+}
+
+  /* Animacion slide derecha */ 
   @keyframes slide-right {
     from {
       opacity: 0;
@@ -13,6 +38,7 @@
     }
   }
 
+  /* Animacion slide izquierda */
   @keyframes slide-left {
     from {
       opacity: 0;
@@ -24,9 +50,92 @@
     }
   }
 
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+/* Navbar */
 .navbar-responsive {
   animation-duration: 0.3s;
     animation-fill-mode: forwards;
   animation-name: slide-right;
 }
 
+.item:hover {
+  color: var(--violet);
+  transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+}
+
+.logo {
+  opacity: 0;
+  animation: fade 1s ease-in forwards, slide-down 0.9s ease-in-out;
+  animation-delay: 0.3s;
+  -webkit-animation: fade 1s ease-in forwards, slide-down 0.9s ease-in-out;
+}
+
+.hero-info {
+  opacity: 0;
+  animation: fade 1.5s ease-in forwards;
+  -webkit-animation: fade 1.5s ease-in forwards;
+}
+
+.about-me-info {
+  opacity: 0;
+}
+
+/* Hover a los servicios */
+.card:hover {
+  transform: scale(1.03);
+  -webkit-transform: scale(1.03);
+  -moz-transform: scale(1.03);
+  -ms-transform: scale(1.03);
+  -o-transform: scale(1.03);
+  transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+}
+
+/* Testimonios */
+
+.chat-1,
+.chat-2,
+.chat-3 {
+  opacity: 1;
+}
+
+/* BOTONES */
+
+.btn-navbar-list:hover {
+  background: transparent;
+  border: 1.5px solid var(--violet-creme);
+  color: var(--violet-creme);
+  font-weight: 600;
+  transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -ms-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+}
+
+.btn-hero:hover {
+  background: transparent;
+  border: 1px solid var(--violet-creme);
+  color: var(--violet-creme);
+  font-weight: 600;
+  transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -ms-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+}
