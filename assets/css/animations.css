@@ -28,21 +28,33 @@
   display: block;
 }
 
-  @keyframes slide-down {
-    from {
-      transform: translateY(-100px);
-      -webkit-transform: translateY(-100px);
-      -moz-transform: translateY(-100px);
-      -ms-transform: translateY(-100px);
-      -o-transform: translateY(-100px);
+@keyframes slide-down {
+  from {
+    transform: translateY(-100px);
+    -webkit-transform: translateY(-100px);
+    -moz-transform: translateY(-100px);
+    -ms-transform: translateY(-100px);
+    -o-transform: translateY(-100px);
+  }
+  to {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
 }
-    to {
-      transform: translateY(0);
-      -webkit-transform: translateY(0);
-      -moz-transform: translateY(0);
-      -ms-transform: translateY(0);
-      -o-transform: translateY(0);
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
 }
+
 }
 
   /* Animacion slide derecha */ 
@@ -70,10 +82,10 @@
   }
 
   @keyframes fade {
-    from {
+    0%{
       opacity: 0;
     }
-    to {
+    100% {
       opacity: 1;
     }
   }
@@ -105,38 +117,33 @@
   -webkit-animation: fade 1s ease-in forwards, slide-down 0.9s ease-in-out;
 }
 
-.hero-info {
-  opacity: 0;
-  animation-delay: 0.5s;
-  animation: fade 1.5s ease-in forwards;
-  -webkit-animation: fade 1.5s ease-in forwards;
-}
-
-.about-me-info {
-  opacity: 0;
+.animate-boxes {
+  animation: fade 2s;
 }
 
 /* Hover a los servicios */
-.card:hover {
-  transform: scale(1.03);
-  -webkit-transform: scale(1.03);
-  -moz-transform: scale(1.03);
-  -ms-transform: scale(1.03);
-  -o-transform: scale(1.03);
-  transition: all 1s ease;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  -o-transition: all 1s ease;
+.card:hover .card-description > .card-info {
+  display: block;
+  /* animation: slide-up 1s; */
+}
+
+.card:hover .card-description {
+  animation: slide-up .5s;
 }
 
 /* Testimonios */
-
-.chat-1,
-.chat-2,
-.chat-3 {
-  opacity: 1;
+.animate-chat1{
+  animation: slide-left 1s;
 }
+
+.animate-chat2 {
+  animation: slide-down 1s;
+}
+
+.animate-chat3 {
+  animation: slide-right 1s;
+}
+
 
 /* BOTONES */
 
