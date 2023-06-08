@@ -55,6 +55,14 @@
         display: none;
     }
 
+    .about-me-info {
+        width: 80%;
+    }
+
+    /* Servicios */
+    .card {
+        width: 45%;
+    }
 
     #contact-me {
         justify-content: center;
@@ -82,10 +90,15 @@
 
 
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     
     .header-top {
-        padding: 0 30px;
+        padding: 0 10px;
+        justify-content: center;
+    }
+
+    .header-top span {
+        font-size: 12px;
     }
 
     /* Navbar */
@@ -120,6 +133,12 @@
         font-size: 12px;
     }
 
+    /* ABOUT-ME */
+
+    .about-me-info {
+        width: 100%;
+    }
+
     /* TESTIMONIOS */
 
     .chats {
@@ -130,12 +149,6 @@
     
     .chat { 
         width: 100%;
-    }
-
-    /* About me */
-
-    .about-me-info {
-        width: 70%;
     }
 
     .paragraph-container {
