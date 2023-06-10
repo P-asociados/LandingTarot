@@ -35,25 +35,17 @@ html {
 
 @keyframes slide-down {
   from {
-    transform: translateY(-100px);
-    -webkit-transform: translateY(-100px);
-    -moz-transform: translateY(-100px);
-    -ms-transform: translateY(-100px);
-    -o-transform: translateY(-100px);
+    transform: translateY(-20px);
   }
   to {
     transform: translateY(0);
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
   }
 }
 
 @keyframes slide-up {
   from {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -66,7 +58,7 @@ html {
   @keyframes slide-right {
     from {
       opacity: 0;
-      transform: translateX(100px);
+      transform: translateX(20px);
     }
     to {
       opacity: 1;
@@ -78,7 +70,7 @@ html {
   @keyframes slide-left {
     from {
       opacity: 0;
-      transform: translateX(-100px);
+      transform: translateX(-20px);
     }
     to {
       opacity: 1;
