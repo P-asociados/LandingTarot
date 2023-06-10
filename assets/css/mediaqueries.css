@@ -146,12 +146,10 @@
         flex-direction: column;
         padding: 0 30px;
         gap: 50px;
+        justify-content: center;
+        align-items: center;
     }
     
-    .chat { 
-        width: 100%;
-    }
-
     .paragraph-container {
         width: 100%;
     }

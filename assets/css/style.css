@@ -409,19 +409,23 @@ main {
 
 .chats {
     display: flex;
-    align-items: start;
+    align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 50px;
     width: 100%;
 }
 
 .chat { 
-    width: 30%;
-    height: auto;
+    height: 500px;
 }
 
+.chat img {
+    height: 100%;
+}
+
+
 /* CSS Whatsapp Chat */
-.t-header-chat {
+/* .t-header-chat {
     background: #005C4B;
     color: #fff;
     padding: 20px;
@@ -511,7 +515,7 @@ span.t-chat-nama {
     flex-direction: column;
     height: 450px;
     gap: 20px;
-}
+} */
 
 /* CONTACT-ME */
 
